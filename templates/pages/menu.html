@@ -1,0 +1,84 @@
+{% extends "layouts/base.html" %}
+{% load static%}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% block title%}Principal{% endblock  %}
+{% block content %}
+<div class="d-flex" id="wrapper">
+    <!-- Page content wrapper-->
+    <div id="page-content-wrapper">
+        <!-- Top navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="container-fluid">
+                    <a href="{% url 'perfil' %}" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3">Perfil</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <a class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" href="/">Volver</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                </div>
+            </div>                
+        </nav>
+        <!-- Page content-->
+        <div class="container">
+            <div class="row">
+
+                {% comment %} Tarjeta de Desayuno {% endcomment %}
+
+              <a href="{% url 'comida1' %}">
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://www.elmueble.com/medio/2023/05/23/desayunos-saludables_556ff9eb_230523094040_1200x630.jpg" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                            <h5 class="card-title">Desayuno</h5>
+                            <p class="card-text">podras elegir que desayunar con lo que tienes</p>
+                        </div>
+                        <div class="card-body">
+                            <a class="card-link"></a>
+                        </div>
+                    </div>
+                </div>
+               </a>
+
+                {% comment %} Tarjeta de almuerzo {% endcomment %}
+                
+                <div href="{% url 'comida2' %}" class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://estaticos.elcolombiano.com/binrepository/580x387/0c19/580d365/none/11101/MJRY/whatsapp-image-2022-02-13-at-12-22-02-pm_39470452_20220213142048.jpg" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                            <h5 class="card-title">Almuerzo</h5>
+                            <p class="card-text">podras elegir que almorzar con lo que tienes</p>
+                        </div>
+                        <div class="card-body">
+                            <a  class="card-link">Almuerzo</a>
+                        </div>
+                    </div>
+                </div>
+
+                {% comment %} Tarjeta de Cena {% endcomment %}
+
+                <div class="col-md-4">
+                    <div class="card" style="width: 18rem;">
+                        <img src="https://i.blogs.es/972201/101-cenas/1366_2000.jpg" class="card-img-top" alt="Chicago Skyscrapers"/>
+                        <div class="card-body">
+                            <h5 class="card-title">Cena</h5>
+                            <p class="card-text">podras elegir que cenar con lo que tienes</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="{% url 'comida3' %}" class="card-link">Cena</a>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="col-md-4">
+                    <!-- Copia y pega la misma estructura de tarjeta aquí para la segunda tarjeta -->
+                </div>
+        
+                <div class="col-md-4">
+                    <!-- Copia y pega la misma estructura de tarjeta aquí para la tercera tarjeta -->
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
