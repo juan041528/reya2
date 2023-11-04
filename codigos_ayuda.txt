@@ -35,3 +35,6 @@ Port number: 3306
 pip install mysqlclient
 python manage.py makemigrations
 python manage.py migrate
+
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp"
+                  class="rounded-circle img-fluid" style="width: 100px;" />
