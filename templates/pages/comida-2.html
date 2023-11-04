@@ -146,39 +146,48 @@
 
     // Agregar un evento al botón "Obtener Receta"
     document.getElementById('obtenerReceta').addEventListener('click', function () {
-        if (selectedElements.length > 0) {
-            // Construir la URL del API con los elementos seleccionados
-            const apiUrl = 'http://kmiska.pythonanywhere.com/recetas?ingredientes=' + selectedElements.join(',');
-
-            // Realizar una solicitud GET al API
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // Comprobar si la respuesta contiene la sección de recetas
-                    if (data && data.recetas && data.recetas.length > 0) {
-                        const recetas = data.recetas;
-                        let recetasHTML = '';
-
-                        // Limitar a mostrar solo las primeras tres recetas
-                        const numRecetasAMostrar = 3;
-                        for (let i = 0; i < Math.min(numRecetasAMostrar, recetas.length); i++) {
-                            const receta = recetas[i];
-                            recetasHTML += '<p>Nombre de la receta: ' + receta.nombre + '</p>';
-                            recetasHTML += '<p>Pasos de la receta: ' + receta.pasos + '</p>';
-                        }
-
-                        recetasAPIElement.innerHTML = recetasHTML;
-                    } else {
-                        recetasAPIElement.textContent = 'No se encontraron recetas en la respuesta del API.';
-                    }
-                })
-                .catch(error => {
-                    recetasAPIElement.textContent = 'Error al obtener la receta: ' + error;
-                });
-        } else {
-            recetasAPIElement.textContent = 'No hay elementos seleccionados para buscar recetas.';
-        }
-    });
+      if (selectedElements.length > 0) {
+          // Construir la URL del API con los elementos seleccionados
+          const apiUrl = 'http://kmiska.pythonanywhere.com/recetas?ingredientes=' + selectedElements.join(',');
+  
+          // Realizar una solicitud GET al API
+          fetch(apiUrl)
+              .then(response => response.json())
+              .then(data => {
+                  // Comprobar si la respuesta contiene la sección de recetas
+                  if (data && data.recetas && data.recetas.length > 0) {
+                      const recetas = data.recetas;
+                      let recetasHTML = '';
+                      const numRecetasAMostrar = 3;
+  
+                      for (let i = 0; i < Math.min(numRecetasAMostrar, recetas.length); i++) {
+                          const receta = recetas[i];
+  
+                          // Crear una tarjeta de Bootstrap para cada receta
+                          recetasHTML += `
+                              <div class="card">
+                                  <div class="card-body">
+                                      <h5 class="card-title">${receta.nombre}</h5>
+                                      <p class="card-text">${receta.pasos}</p>
+                                  </div>
+                              </div>
+                          `;
+                      }
+  
+                      // Añadir las tarjetas al elemento con el id 'recetasAPIElement'
+                      recetasAPIElement.innerHTML = recetasHTML;
+                  } else {
+                      recetasAPIElement.textContent = 'No se encontraron recetas en la respuesta del API.';
+                  }
+              })
+              .catch(error => {
+                  recetasAPIElement.textContent = 'Error al obtener la receta: ' + error;
+              });
+      } else {
+          recetasAPIElement.textContent = 'No hay elementos seleccionados para buscar recetas.';
+      }
+  });
+  
 </script>
 
 </body>
