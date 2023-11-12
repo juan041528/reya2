@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.db.utils import IntegrityError
 from django.contrib.auth import authenticate, login
+from django.core.mail import send_mail
+from django.conf import settings
 
 #def principal(request):
     #return HttpResponse("hola")
@@ -38,7 +40,12 @@ def crear(request):
             error_message = "Por favor, complete todos los campos."
             return render(request, 'pages/crearUsuario.html', {'error_message': error_message})
         try:
+            subject = 'Correo registrado'
+            message = 'Se ha registrado correctamente, esperamos que pueda generar sus recetas'
+            email_from = 'juantriana0428@gmail.com'
+            recipient_list = [email]
             user = User.objects.create_user(username=email, email=email, password=password)
+            send_mail(subject, message, email_from, recipient_list)
             return redirect('index')
         except IntegrityError:
             # El correo ya está registrado, muestra un mensaje de error.
@@ -65,3 +72,5 @@ def perfil(request):
 
 def menu(request):
     return  render(request, 'pages/menu.html')
+
+

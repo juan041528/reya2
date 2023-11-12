@@ -29,18 +29,19 @@
                     </select>
                 </div>
         
-                <button type="button" class="btn btn-outline-primary btn-floating">
+                <button onclick="compartirEnFacebook();" type="button" class="btn btn-outline-primary btn-floating">
                     <i class="fab fa-facebook-f fa-lg"></i>
+                    <img style="height: 20px;" style="width: 10px;"
+                    src="https://www.internetmatters.org/wp-content/uploads/2021/03/facebook-logo-new.small_.png"/>
                 </button>
-                <button type="button" class="btn btn-outline-primary btn-floating">
+                <button onclick="compartirEnTwitter();" type="button" class="btn btn-outline-primary btn-floating" >
                     <i class="fab fa-twitter fa-lg"></i>
-                </button>
-                <button type="button" class="btn btn-outline-primary btn-floating">
-                    <i class="fab fa-skype fa-lg"></i>
+                    <img style="height: 20px;" style="width: 10px;"
+                    src="https://img.freepik.com/vector-gratis/twitter-nuevo-logotipo-2023-x-vector-fondo-blanco_1017-45422.jpg?w=740&t=st=1699749404~exp=1699750004~hmac=f53fcbb38ead13524e55ee470cadf0f0b34319eee635a542dd166a0b8afa9e0b"/>
                 </button>
         
                 <button type="button" class="btn btn-custom-color btn-rounded btn-lg">
-                    <a href="{% url 'logged' %}">Crear receta</a>
+                    <a href="{% url 'logged' %}" class="btn btn-primary">Crear receta</a>
                 </button>
                 <div class="d-flex justify-content-between text-center mt-5 mb-2">
                     <div>
@@ -73,6 +74,16 @@
 
     // Establece la imagen inicial del avatar
     selectedAvatar.src = avatarSelection.value;
+    function compartirEnTwitter() {
+        var palabra = "esta es smi receta"; // La palabra que quieres compartir
+        var twitterURL = "https://twitter.com/intent/tweet?text=" + palabra;
+        window.open(twitterURL, '_blank');
+    }
+    function compartirEnFacebook() {
+        var palabra = "siuuuuuuuu"; // La palabra que quieres compartir
+        var facebookURL = "https://www.facebook.com/sharer/sharer.php?u=https://www.REYA.com&quote=" + palabra;
+        window.open(facebookURL, '_blank');
+      }
 </script>
 
 {% endblock %}
