@@ -11,12 +11,12 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{% block title%}index{% endblock  %}</title>
-    <link rel="stylesheet"  href="{% static 'css/menu.css' %}">
     <link rel="stylesheet"  href="{% static 'css/index.css' %}">
+    <link rel="stylesheet"  href="{% static 'css/menu.css' %}">
 </head>
 <body>
     {% include "includes/header.html" %}
     {% block content%}{% endblock  %}
-    {% include "includes/footer.html" %}
+    {% comment %} {% include "includes/footer.html" %} {% endcomment %}
 </body>
 </html>
