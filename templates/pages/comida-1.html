@@ -162,13 +162,13 @@
   
                           // Crear una tarjeta de Bootstrap para cada receta
                           recetasHTML += `
-                              <div class="card">
-                                  <div class="card-body">
-                                      <h5 class="card-title">${receta.nombre}</h5>
-                                      <p class="card-text">${receta.pasos}</p>
-                                  </div>
+                          <div class="card position-relative">
+                              <div class="card-body">
+                                  <h5 class="card-title">${receta.nombre}</h5>
+                                  <p class="card-text">${receta.pasos}</p>
                               </div>
-                          `;
+                          </div>
+                      `;
                       }
   
                       // Añadir las tarjetas al elemento con el id 'recetasAPIElement'

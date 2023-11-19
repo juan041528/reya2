@@ -73,4 +73,5 @@ def perfil(request):
 def menu(request):
     return  render(request, 'pages/menu.html')
 
-
+def prueba(request):
+    return render(request, "pages/prueba.html")
