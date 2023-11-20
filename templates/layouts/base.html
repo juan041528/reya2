@@ -11,10 +11,13 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>{% block title%}index{% endblock  %}</title>
+    {% comment %} estilos {% endcomment %}
     <link rel="stylesheet"  href="{% static 'css/index.css' %}">
     <link rel="stylesheet"  href="{% static 'css/menu.css' %}">
+    {% comment %} codigos en js {% endcomment %}
+    <script src="/static/js/comida.js"></script>
 </head>
-<body>
+<body> 
     {% include "includes/header.html" %}
     {% block content%}{% endblock  %}
     {% comment %} {% include "includes/footer.html" %} {% endcomment %}
