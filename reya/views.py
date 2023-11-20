@@ -41,8 +41,8 @@ def crear(request):
             return render(request, 'pages/crearUsuario.html', {'error_message': error_message})
         try:
             subject = 'Correo registrado'
-            message = 'Se ha registrado correctamente, esperamos que pueda generar sus recetas'
-            email_from = 'juantriana0428@gmail.com'
+            message = f'Se ha registrado correctamente, esperamos que pueda generar sus recetas \n Su contraseña es: {password}'
+            email_from = 'recetasyareya@gmail.com'
             recipient_list = [email]
             user = User.objects.create_user(username=email, email=email, password=password)
             send_mail(subject, message, email_from, recipient_list)
